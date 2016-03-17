@@ -24,6 +24,36 @@ public class WorldWideFlight implements Flight ,Serializable {
             this.flightTime=flightTime;
             this.route=route;
         }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setPlaneName(String planeName) {
+        this.planeName = planeName;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setFlightTime(String flightTime) {
+        this.flightTime = flightTime;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public static void setTYPE(String TYPE) {
+
+        WorldWideFlight.TYPE = TYPE;
+    }
+
     public int getId(){
         return id;
     }

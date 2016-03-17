@@ -27,8 +27,26 @@ public class RouteImpl implements Route,Serializable {
         return toPoint;
     }
 
+    public RouteImpl() {
+    }
+
+    public void setFromPoint(String fromPoint) {
+
+        this.fromPoint = fromPoint;
+    }
+
+    public void setToPoint(String toPoint) {
+        this.toPoint = toPoint;
+    }
+
+    public void setId(int id) {
+
+        this.id = id;
+    }
+
     public String toJson() {
         return null;
+
     }
 
     public String toString(){

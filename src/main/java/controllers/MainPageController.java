@@ -6,6 +6,7 @@ import model.Route;
 import model.RouteImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,11 +30,12 @@ public class MainPageController{
         }
         return flights;
     }
-    @RequestMapping(value = "/index")
+    @RequestMapping({"/index","/"})
     public String handleRequest(Model model){
         ArrayList<Flight> flights=getFlights();
         System.out.println("XXX");
         model.addAttribute("flights",flights);
         return "index";
     }
+
 }

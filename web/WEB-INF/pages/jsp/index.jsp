@@ -40,7 +40,7 @@
 						<td>
 							<c:out value="${flight.route}"/>
 						</td>
-						<td><a href = "./edit.html?id=${flight.id}" class = "btn btn-default btn-lg" role = "button"><i class="glyphicon glyphicon-pencil" ></i></a></td>
+						<td><a href = "./editFlight?id=${flight.id}" class = "btn btn-default btn-lg" role = "button"><i class="glyphicon glyphicon-pencil" ></i></a></td>
 						<td><button class="btn btn-success"><i class="glyphicon glyphicon-remove"></i></button></td>
 						<td><button class="btn btn-success"><i class="glyphicon glyphicon-list-alt"></i></button></td>
 					</tr>

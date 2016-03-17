@@ -12,8 +12,37 @@
 		
 		<script type="text/javascript">
 		$(document).ready(function(){
-        $("#btn").click(function(){
-            $("#myModal").modal('show');
+        $("#edit").click(function(){
+			var id=$('#id').val();
+            var number=$('#number').val();
+			var name=$('#name').val();
+			var starttime=$('#starttime').val();
+			var flighttime=$('#flighttime').val();
+			var route= {"from":"Alakaevka",
+						"to":"Samar"};
+			var json={"id":id,
+				"number":number,
+				"planeName":name,
+				"startTime":starttime,
+				"flightTime":flighttime,
+				"route":route
+		};
+			$.ajax({
+				url:$('#form').attr("action"),
+				dataType:"json",
+				data:JSON.stringify(json),
+				type:"POST",
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader("Accept", "application/json");
+					xhr.setRequestHeader("Content-Type", "application/json");
+				},
+				success:function(){
+					$("#errorMsg").text("All right");
+				},
+				error:function(){
+					$("#errorMsg").text("All wrong");
+				}
+			})
         });
     });
 
@@ -22,7 +51,7 @@
 	<body>
 		<div class="wrapper container">
 		<header>
-			<a href="/"><img src="./www/images/logo.png" alt="Netcracker Airlines"></a>
+			<a href="/"><img src="/resources/images/logo.png" alt="Netcracker Airlines"></a>
 		</header>
 		<div class="row middle">
 			<div class="col-lg-4">
@@ -34,13 +63,15 @@
 				</ul>
 			</div>
 			<div class="col-lg-6 edit">
-				<form role="form">
+				<p id="errorMsg"></p>
+				<form role="form" id="form" action="./saveFlight">
 					<!--
 					<div class="form-group">
 						<label for="type">Type</label>
 						<input type="type" class="form-control" id="type" placeholder="Type" value="$flight.TYPE}">
 					</div>
 					-->
+					<input type="hidden" id="id" value="${flight.id}">
 					<div class="form-group">
 						<label for="number">Number</label>
 						<input type="numbers" class="form-control" id="number" placeholder="Number" value="${flight.number}">
@@ -66,8 +97,9 @@
 								<option value="">Alakaevka to Samara</option>
 							</select>
 					</div>
-						 <button type="register" class="btn btn-success">Register</button>
+
 					</form>
+				<button type="register" class="btn btn-success" id="edit">Register</button>
 			</div>
 		</div>
 		</div>
