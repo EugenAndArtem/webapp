@@ -6,17 +6,17 @@ package model;
 public interface Flight {
     int getId();
     int getNumber();
-    String getType();
-    String getPlaneName();
-    String getStartTime();
-    String getFlightTime();
-    Route getRoute();
+   // String getType();
+    String getPlanename();
+    String getStarttime();
+    String getFlighttime();
+    RouteImpl getRoute();
     void setId(int id);
     void setNumber(int number);
-    void setStartTime(String startTime);
-    void setPlaneName(String planeName);
-    void setFlightTime(String flightTime);
-    void setRoute(Route route);
+    void setStarttime(String startTime);
+    void setPlanename(String planeName);
+    void setFlighttime(String flightTime);
+    void setRoute(RouteImpl route);
 
 
 

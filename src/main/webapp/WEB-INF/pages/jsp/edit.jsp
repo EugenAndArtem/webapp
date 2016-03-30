@@ -13,28 +13,36 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
         $("#edit").click(function(){
-			var id=$('#id').val();
-            var number=$('#number').val();
+			var id=parseInt($('#id').val(),10);
+            var number=parseInt($('#number').val(),10);
 			var name=$('#name').val();
 			var starttime=$('#starttime').val();
 			var flighttime=$('#flighttime').val();
-			var route= {"from":"Alakaevka",
-						"to":"Samar"};
-			var json={"id":id,
+			var route={"fromPoint":"Samara",
+						"toPoint":"Kinel"};
+
+			var json={
+                "id":id,
 				"number":number,
-				"planeName":name,
-				"startTime":starttime,
-				"flightTime":flighttime,
-				"route":route
+				"planename":name,
+				"starttime":starttime,
+				"flighttime":flighttime,
+				"route":route,
+
 		};
+			console.log(json);
 			$.ajax({
 				url:$('#form').attr("action"),
+				cache: false,
+				processData: false,
 				dataType:"json",
+				mimeType: 'application/json',
+				contentType: 'application/json',
 				data:JSON.stringify(json),
 				type:"POST",
-				beforeSend: function(xhr) {
-					xhr.setRequestHeader("Accept", "application/json");
-					xhr.setRequestHeader("Content-Type", "application/json");
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
 				},
 				success:function(){
 					$("#errorMsg").text("All right");
@@ -78,15 +86,15 @@
 					</div>
 					<div class="form-group">
 						<label for="name">Plane Name</label>
-						<input type="name" class="form-control" id="name" placeholder="Plane Name" value="${flight.planeName}">
+						<input type="name" class="form-control" id="name" placeholder="Plane Name" value="${flight.planename}">
 					</div>
 					<div class="form-group">
 						<label for="starttime">Start Time</label>
-						<input type="starttime" class="form-control" id="starttime" placeholder="Start Time" value="${flight.startTime}">
+						<input type="starttime" class="form-control" id="starttime" placeholder="Start Time" value="${flight.starttime}">
 					</div>
 					<div class="form-group">
 						<label for="flighttime">Flight Time</label>
-						<input type="flighttime" class="form-control" id="flighttime" placeholder="Flight Time" value="${flight.flightTime}">
+						<input type="flighttime" class="form-control" id="flighttime" placeholder="Flight Time" value="${flight.flighttime}">
 					</div>
 					<div class="form-group">
 						<label>Route</label>

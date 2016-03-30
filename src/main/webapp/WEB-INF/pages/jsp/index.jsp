@@ -37,9 +37,7 @@
 				<c:forEach items="${flights}" var="flight">
 					<tr>
 						<td>1</td>
-						<td>
-							<c:out value="${flight.route}"/>
-						</td>
+						<td>${flight}</td>
 						<td><a href = "./editFlight?id=${flight.id}" class = "btn btn-default btn-lg" role = "button"><i class="glyphicon glyphicon-pencil" ></i></a></td>
 						<td><button class="btn btn-success"><i class="glyphicon glyphicon-remove"></i></button></td>
 						<td><button class="btn btn-success"><i class="glyphicon glyphicon-list-alt"></i></button></td>

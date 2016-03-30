@@ -1,9 +1,6 @@
 package controllers;
 
-import model.Flight;
-import model.InnerFlight;
-import model.Route;
-import model.RouteImpl;
+import model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by Eugen on 04.03.2016.
@@ -25,11 +24,11 @@ import java.util.ArrayList;
 public class EditController {
 
     private ArrayList<Flight> getFlights() {
-        Route route;
+        RouteImpl route;
         ArrayList<Flight> flights = new ArrayList<Flight>();
         for (int i = 0; i < 10; i++) {
             route = new RouteImpl("From Point " + i, "To Point " + i);
-            flights.add(new InnerFlight(i, "Plane " + i, "Start Time " + i, "Finish Time " + i, route));
+            flights.add(new InnerFlight(i, "Plane " + i, "Start Time " + i, "Finish Time " + i));
 
         }
         return flights;
@@ -49,19 +48,23 @@ public class EditController {
         model.addAttribute("flight",flight);
         return "edit";
     }
-    @RequestMapping(value="/saveFlight",method= RequestMethod.POST)
+    @RequestMapping(value="/saveFlight",headers="Accept=application/json",method=RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity validateFlight(@Valid @ModelAttribute(value="flight") InnerFlight flight, BindingResult bindingResult){
+    public InnerFlightWrapper validateFlight(@Valid @RequestBody final InnerFlight flight, BindingResult bindingResult){
         System.out.println("/saveFlight");
-
+        InnerFlightWrapper wrap=new InnerFlightWrapper();
         if(bindingResult.hasErrors()){
-            System.out.println(bindingResult.getAllErrors());
-            return new ResponseEntity(bindingResult, HttpStatus.BAD_REQUEST);
+            Map<String,String> map=new TreeMap<String, String>();
+            map.put("0",bindingResult.getAllErrors().get(0).toString());
+            wrap.setErrors(map);
+
+            return wrap;
         }
         else {
             System.out.println("!!!");
             System.out.println(flight);
-            return new ResponseEntity(flight,HttpStatus.OK);
+            wrap.setFlight(flight);
+            return wrap;
         }
 
     }

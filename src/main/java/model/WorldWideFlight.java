@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Created by Eugen on 26.10.2015.
  */
-public class WorldWideFlight implements Flight ,Serializable {
+public class WorldWideFlight implements Serializable {
         public static String TYPE="WorldWideFlight";
         private int number;
         private String planeName;
@@ -29,15 +29,15 @@ public class WorldWideFlight implements Flight ,Serializable {
         this.number = number;
     }
 
-    public void setPlaneName(String planeName) {
+    public void setPlanename(String planeName) {
         this.planeName = planeName;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStarttime(String startTime) {
         this.startTime = startTime;
     }
 
-    public void setFlightTime(String flightTime) {
+    public void setFlighttime(String flightTime) {
         this.flightTime = flightTime;
     }
 
@@ -65,15 +65,15 @@ public class WorldWideFlight implements Flight ,Serializable {
             return TYPE;
         }
 
-        public String getPlaneName(){
+        public String getPlanename(){
             return planeName;
         }
 
-        public String getStartTime(){
+        public String getStarttime(){
             return startTime;
         }
 
-        public String getFlightTime(){
+        public String getFlighttime(){
             return flightTime;
         }
 

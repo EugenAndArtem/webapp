@@ -2,69 +2,73 @@ package model;
 
 import com.sun.istack.internal.NotNull;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
-import java.beans.Transient;
 import java.io.Serializable;
 
 /**
  * Created by Eugen on 26.10.2015.
  */
-public class InnerFlight implements Flight ,Serializable {
-    public static String TYPE="InnerFlight";
-    @NotNull
+public class InnerFlight implements Flight,Serializable {
+    //public static String TYPE="InnerFlight";
+    @Min(0)
     private int number;
     @NotNull
-    private String planeName;
+    private String planename;
     @NotNull
-    private String startTime;
+    private String starttime;
     @NotNull
-    private String flightTime;
+    private String flighttime;
+    @NotNull
+    private RouteImpl route;
 
-    public static String getTYPE() {
-        return TYPE;
+    public RouteImpl getRoute() {
+        return route;
     }
 
-    @NotNull
-    @Size(min=0)
+    public void setRoute(RouteImpl route) {
+        this.route = route;
+    }
+    //    public static String getTYPE() {
+//        return TYPE;
+//    }
+
+
     private int id;
-    private Route route=null;
+
     public InnerFlight() {
     }
-    public InnerFlight( int number,String planeName,String startTime,String flightTime,Route route){
+    public InnerFlight(int number, String planename, String starttime, String flighttime){
 
         this.number=number;
-        this.planeName=planeName;
-        this.startTime=startTime;
-        this.flightTime=flightTime;
-        this.route=route;
+        this.planename = planename;
+        this.starttime = starttime;
+        this.flighttime = flighttime;
     }
     public int getId(){
         return id;
     }
 
-    public void setPlaneName(String planeName) {
-        this.planeName = planeName;
+    public void setPlanename(String planename) {
+        this.planename = planename;
     }
 
     public void setNumber(int number) {
         this.number = number;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
     }
 
-    public void setFlightTime(String flightTime) {
-        this.flightTime = flightTime;
+    public void setFlighttime(String flighttime) {
+        this.flighttime = flighttime;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
-    }
 
 
 
@@ -72,31 +76,28 @@ public class InnerFlight implements Flight ,Serializable {
         return number;
     }
 
-    public String getType(){
-        return TYPE;
+//    public String getType(){
+//        return TYPE;
+//    }
+
+    public String getPlanename(){
+        return planename;
     }
 
-    public String getPlaneName(){
-        return planeName;
+    public String getStarttime(){
+        return starttime;
     }
 
-    public String getStartTime(){
-        return startTime;
+    public String getFlighttime(){
+        return flighttime;
     }
 
-    public String getFlightTime(){
-        return flightTime;
-    }
-
-    @Transient public Route getRoute(){
-        return route;
-    }
     public String toJson(){
         return null;
     }
     public String toString(){
-        return "Inner Flight "+Integer.toString(number) +" " + planeName + " from " + route.getFromPoint() + " to " + route.getToPoint() + " starts at " + startTime +
-                " and arrives at " + flightTime;
+        return "Inner Flight "+Integer.toString(number) +" " + planename + " from "  + " starts at " + starttime +
+                " and arrives at " + flighttime;
     }
 
 }

@@ -21,16 +21,16 @@ import java.util.ArrayList;
 @Controller
 public class MainPageController{
     private ArrayList<Flight> getFlights(){
-        Route route;
+        RouteImpl route;
         ArrayList<Flight> flights=new ArrayList<Flight>();
         for(int i=0;i<10;i++){
             route=new RouteImpl("From Point "+i,"To Point "+i);
-            flights.add(new InnerFlight(i,"Plane "+i,"Start Time "+i,"Finish Time "+i,route));
+            flights.add(new InnerFlight(i,"Plane "+i,"Start Time "+i,"Finish Time "+i));
 
         }
         return flights;
     }
-    @RequestMapping({"/index","/"})
+    @RequestMapping({"/index"})
     public String handleRequest(Model model){
         ArrayList<Flight> flights=getFlights();
         System.out.println("XXX");
