@@ -16,6 +16,7 @@
                 <property name="prefix" value="/WEB-INF/pages/jsp/" />
                 <property name="suffix" value=".jsp" />
         </bean>
+        <bean id="service" class="aviaTableX.FlightServiceImpl"/>
         <mvc:interceptors>
                 <mvc:interceptor>
                         <mvc:mapping path="/*" />

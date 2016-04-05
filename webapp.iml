@@ -57,7 +57,7 @@
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: flightProject:flightProject:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="flightProject" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.0.9.RELEASE" level="project" />
