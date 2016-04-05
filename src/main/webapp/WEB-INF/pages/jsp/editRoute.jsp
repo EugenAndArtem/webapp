@@ -19,7 +19,7 @@
 	<body>
 		<div class="wrapper container">
 		<header>
-			<a href="/"><img src="./www/images/logo.png" alt="Netcracker Airlines"></a>
+			<a href="/src/main/webapp"><img src="./www/images/logo.png" alt="Netcracker Airlines"></a>
 		</header>
 		<div class="row middle">
 			<div class="col-lg-4">

@@ -8,13 +8,13 @@
 		<title>Main Page</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="/resources/css/style.css" rel="stylesheet">
+		<link href="//resources/css/style.css" rel="stylesheet">
 
 	</head>
 	<body>
 		<div class="wrapper container">
 		<header>
-			<a href="/"><img src="/resources/images/logo.png" alt="Netcracker Airlines"></a>
+			<a href="/src/main/webapp"><img src="/resources/images/logo.png" alt="Netcracker Airlines"></a>
 		</header>
 		<div class="row middle">
 			<div class="col-lg-4">

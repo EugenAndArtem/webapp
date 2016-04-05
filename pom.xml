@@ -61,6 +61,11 @@
             <artifactId>jackson-core-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
+        <dependency>
+            <groupId>flightProject</groupId>
+            <artifactId>flightProject</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
 
     </dependencies>

@@ -59,7 +59,7 @@
 	<body>
 		<div class="wrapper container">
 		<header>
-			<a href="/"><img src="/resources/images/logo.png" alt="Netcracker Airlines"></a>
+			<a href=""><img src="/resources/images/logo.png" alt="Netcracker Airlines"></a>
 		</header>
 		<div class="row middle">
 			<div class="col-lg-4">
