@@ -1,18 +1,17 @@
 package controllers;
 
+import aviaTableX.FlightServiceImpl;
+import aviaTableX.ServiceFlight;
 import model.Flight;
-import model.InnerFlight;
-import model.Route;
+import model.FlightImpl;
 import model.RouteImpl;
+import model.Type;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,13 +19,26 @@ import java.util.ArrayList;
  */
 @Controller
 public class MainPageController{
+
+    @Autowired
+    private ServiceFlight service;
+
+
+    public ServiceFlight getService() {
+        return service;
+    }
+
+    public void setService(FlightServiceImpl service) {
+        this.service = service;
+    }
+
     private ArrayList<Flight> getFlights(){
         RouteImpl route;
         ArrayList<Flight> flights=new ArrayList<Flight>();
-        for(int i=0;i<10;i++){
-            route=new RouteImpl("From Point "+i,"To Point "+i);
-            flights.add(new InnerFlight(i,"Plane "+i,"Start Time "+i,"Finish Time "+i));
-
+        try {
+            flights=new ArrayList<Flight>(service.getAllFlights());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return flights;
     }

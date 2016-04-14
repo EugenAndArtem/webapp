@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: flightProject:flightProject:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/flightProject/flightProject/1.0-SNAPSHOT/flightProject-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/flightProject/flightProject/1.0-SNAPSHOT/flightProject-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/flightProject/flightProject/1.0-SNAPSHOT/flightProject-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

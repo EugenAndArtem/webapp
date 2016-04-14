@@ -2,6 +2,7 @@ package controllers;
 
 import model.User;
 
+import model.UserImpl;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +18,16 @@ import java.util.ArrayList;
  * Created by Eugen on 22.03.2016.
  */
 public class AuthentificationInterceptor extends HandlerInterceptorAdapter {
-    ArrayList<User> users;
+    ArrayList<UserImpl> users;
     void createUsers(){
-        users=new ArrayList<User>();
-        users.add(new User("User1","password1"));
-        users.add(new User("User2","password2"));
-        users.add(new User("User3","password3"));
+        users=new ArrayList<UserImpl>();
+        users.add(new UserImpl("User1","password1","email1"));
+        users.add(new UserImpl("User2","password2","email1"));
+        users.add(new UserImpl("User3","password3","email1"));
     }
     User getUserByName(String name){
-        for(User user:users){
-            if(user.getUsername().equals(name))return user;
+        for(UserImpl user:users){
+            if(user.getNameUser().equals(name))return user;
         }
         return null;
     }
@@ -39,7 +40,7 @@ public class AuthentificationInterceptor extends HandlerInterceptorAdapter {
 
             if(!uri.endsWith("/") && !uri.endsWith("/loginValidation"))
             {
-                User userData = (User) request.getSession().getAttribute("LOGGEDIN_USER");
+                UserImpl userData = (UserImpl) request.getSession().getAttribute("LOGGEDIN_USER");
                 if(userData == null)
                 {
                     response.sendRedirect("/");

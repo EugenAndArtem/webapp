@@ -1,6 +1,7 @@
 package controllers;
 
 import model.User;
+import model.UserImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,31 +21,31 @@ import java.util.Locale;
  */
 @Controller
 public class AuthController {
-    ArrayList<User> users;
+    ArrayList<UserImpl> users;
 
     void createUsers() {
-        users = new ArrayList<User>();
-        users.add(new User("User1", "password1"));
-        users.add(new User("User2", "password2"));
-        users.add(new User("User3", "password3"));
+        users = new ArrayList<UserImpl>();
+        users.add(new UserImpl("User1","password1","email1"));
+        users.add(new UserImpl("User2","password2","email2"));
+        users.add(new UserImpl("User3","password3","email3"));
     }
 
-    User getUserByName(String name) {
-        for (User user : users) {
-            if (user.getUsername().equals(name)) return user;
+    UserImpl getUserByName(String name) {
+        for (UserImpl user : users) {
+            if (user.getNameUser().equals(name)) return user;
         }
         return null;
     }
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
-    public String loginValidate(User userAttribute, Model model, HttpServletRequest request)  {
+    public String loginValidate(UserImpl userAttribute, Model model, HttpServletRequest request)  {
         System.out.println("Login");
-        String username = userAttribute.getUsername();
+        String username = userAttribute.getNameUser();
         String password = userAttribute.getPassword();
         createUsers();
         // A simple authentication manager
         if (username != null && password != null) {
-            User user = getUserByName(username);
+            UserImpl user = getUserByName(username);
             if (user != null) {
                 if (user.getPassword().equals(password)) {
                     request.getSession().setAttribute("LOGGEDIN_USER", userAttribute);
@@ -56,7 +57,7 @@ public class AuthController {
         return "redirect:/";
     }
     @RequestMapping(value = "/")
-    public String showLogin(Model model,User user){
+    public String showLogin(Model model,UserImpl user){
         model.addAttribute("userAttribute",user);
         return "login";
     }

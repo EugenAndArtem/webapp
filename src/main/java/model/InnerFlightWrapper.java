@@ -6,14 +6,14 @@ import java.util.Map;
  * Created by Eugen on 25.03.2016.
  */
 public class InnerFlightWrapper {
-    private InnerFlight flight;
+    private Flight flight;
     private Map<String,String> errors;
 
-    public InnerFlight getFlight() {
+    public Flight getFlight() {
         return flight;
     }
 
-    public void setFlight(InnerFlight flight) {
+    public void setFlight(Flight flight) {
         this.flight = flight;
     }
 

@@ -9,23 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$USER_HOME$/portal/webapp/java" />
-          <root url="file://$USER_HOME$/webapp/src/main/resources" />
-        </sourceRoots>
-      </configuration>
-    </facet>
-    <facet type="Spring" name="Spring">
-      <configuration />
-    </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="sessionFactory" value="dataSource" />
-        </datasource-map>
-        <naming-strategy-map />
       </configuration>
     </facet>
   </component>
@@ -33,9 +16,6 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$USER_HOME$/portal/webapp/java" isTestSource="false" />
-      <sourceFolder url="file://$USER_HOME$/webapp/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
@@ -56,12 +36,13 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.4" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:4.3.2.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.1.GA" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:0.8.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="module" module-name="flightProject" />
+    <orderEntry type="library" name="Maven: flightProject:flightProject:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.0.9.RELEASE" level="project" />

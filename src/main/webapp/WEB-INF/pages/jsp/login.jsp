@@ -1,3 +1,5 @@
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 	<head>
@@ -46,7 +48,7 @@
 					<%}%>
 					<form:form action="loginValidation" method="post" role="form" modelAttribute="userAttribute">
 						 <div class="form-group">
-							  <form:input type="Login" class="form-control" id="email" placeholder="Login" path="username"/>
+							  <form:input type="Login" class="form-control" id="email" placeholder="Login" path="nameUser"/>
 						 </div>
 						 <div class="form-group">
 							  

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../flightProject/flightProject.iml" filepath="$PROJECT_DIR$/../flightProject/flightProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/webapp.iml" filepath="$PROJECT_DIR$/.idea/webapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/webapp.iml" filepath="$PROJECT_DIR$/webapp.iml" />
     </modules>
   </component>

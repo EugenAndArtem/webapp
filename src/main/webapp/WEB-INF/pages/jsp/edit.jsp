@@ -18,17 +18,19 @@
 			var name=$('#name').val();
 			var starttime=$('#starttime').val();
 			var flighttime=$('#flighttime').val();
-			var route={"fromPoint":"Samara",
-						"toPoint":"Kinel"};
+			var route={"fromPoint":"From Point 3",
+						"toPoint":"To Point 3",
+						"id":11};
+			var type={"type":1};
 
 			var json={
                 "id":id,
 				"number":number,
-				"planename":name,
-				"starttime":starttime,
-				"flighttime":flighttime,
+				"planeName":name,
+				"startTime":starttime,
+				"flightTime":flighttime,
 				"route":route,
-
+				"type":type
 		};
 			console.log(json);
 			$.ajax({
@@ -86,15 +88,15 @@
 					</div>
 					<div class="form-group">
 						<label for="name">Plane Name</label>
-						<input type="name" class="form-control" id="name" placeholder="Plane Name" value="${flight.planename}">
+						<input type="name" class="form-control" id="name" placeholder="Plane Name" value="${flight.planeName}">
 					</div>
 					<div class="form-group">
 						<label for="starttime">Start Time</label>
-						<input type="starttime" class="form-control" id="starttime" placeholder="Start Time" value="${flight.starttime}">
+						<input type="starttime" class="form-control" id="starttime" placeholder="Start Time" value="${flight.startTime}">
 					</div>
 					<div class="form-group">
 						<label for="flighttime">Flight Time</label>
-						<input type="flighttime" class="form-control" id="flighttime" placeholder="Flight Time" value="${flight.flighttime}">
+						<input type="flighttime" class="form-control" id="flighttime" placeholder="Flight Time" value="${flight.flightTime}">
 					</div>
 					<div class="form-group">
 						<label>Route</label>
