@@ -38,46 +38,46 @@ public class EditController {
         ArrayList<Flight> flights = new ArrayList<Flight>();
         for (int i = 0; i < 10; i++) {
             route = new RouteImpl("From Point " + i, "To Point " + i);
-            flights.add(new FlightImpl(i, "Plane " + i, "Start Time " + i, "Finish Time " + i,route,new Type(0)));
+            flights.add(new FlightImpl(i, "Plane " + i, "Start Time " + i, "Finish Time " + i, route, new Type(0)));
 
         }
         return flights;
     }
 
-    private Flight getFlight(int id){
+    private Flight getFlight(int id) {
         try {
-        if(id>=0)
+            if (id >= 0)
 
-            return service.getFlightById(id);
-        else return null;
-        }
-        catch (SQLException e) {
+                return service.getFlightById(id);
+            else return null;
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-    @RequestMapping(value="/editFlight")
-    public String getEditView(@RequestParam("id") String sId, Model model){
+
+    @RequestMapping(value = "/editFlight")
+    public String getEditView(@RequestParam("id") String sId, Model model) {
         System.out.println("Edit");
         Flight flight = null;
         int id = Integer.parseInt(sId);
-        flight=getFlight(id);
-        model.addAttribute("flight",flight);
+        flight = getFlight(id);
+        model.addAttribute("flight", flight);
         return "edit";
     }
-    @RequestMapping(value="/saveFlight",headers="Accept=application/json",method=RequestMethod.POST)
+
+    @RequestMapping(value = "/saveFlight", headers = "Accept=application/json", method = RequestMethod.POST)
     @ResponseBody
-    public InnerFlightWrapper validateFlight(@Valid @RequestBody final FlightImpl flight, BindingResult bindingResult){
+    public InnerFlightWrapper validateFlight(@Valid @RequestBody final FlightImpl flight, BindingResult bindingResult) {
         System.out.println("/saveFlight");
-        InnerFlightWrapper wrap=new InnerFlightWrapper();
-        if(bindingResult.hasErrors()){
-            Map<String,String> map=new TreeMap<String, String>();
-            map.put("0",bindingResult.getAllErrors().get(0).toString());
+        InnerFlightWrapper wrap = new InnerFlightWrapper();
+        if (bindingResult.hasErrors()) {
+            Map<String, String> map = new TreeMap<String, String>();
+            map.put("0", bindingResult.getAllErrors().get(0).toString());
             wrap.setErrors(map);
 
             return wrap;
-        }
-        else {
+        } else {
             try {
                 service.updateFlight(flight);
             } catch (SQLException e) {
@@ -89,5 +89,24 @@ public class EditController {
             return wrap;
         }
 
+    }
+
+    @RequestMapping(value = "/deleteFlight", headers = "Accept=application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public InnerFlightWrapper deleteFlight(@RequestBody final Integer id) {
+        System.out.println("/deleteFlight");
+        Map<String, String> map = new TreeMap<String, String>();
+        InnerFlightWrapper wrap = new InnerFlightWrapper();
+        Flight flight = null;
+        try {
+            flight = service.getFlightById(id);
+            service.deleteFlight(flight);
+            map.put("OK","DELETE SUCCESS");
+        } catch (SQLException e)
+        {
+            map.put("SQL_ERROR",e.getMessage());
+            wrap.setErrors(map);
+        }
+        return wrap;
     }
 }

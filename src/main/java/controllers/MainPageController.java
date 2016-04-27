@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -43,10 +44,10 @@ public class MainPageController{
         return flights;
     }
     @RequestMapping({"/index"})
-    public String handleRequest(Model model){
-        ArrayList<Flight> flights=getFlights();
+    public String handleRequest(Model model) {
+        ArrayList<Flight> flights = getFlights();
         System.out.println("XXX");
-        model.addAttribute("flights",flights);
+        //model.addAttribute("flights", flights);
         return "index";
     }
 
